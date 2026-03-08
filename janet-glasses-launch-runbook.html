@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janet Glasses Launch Runbook — Janet in Charge</title>
+    <meta name="description" content="Step-by-step launch runbook for Janet Glasses. GoFundMe setup, campaign creation, launch day, first week. Janet in charge. May 1, 2026. €5,000.">
+    <link rel="icon" href="janet-icon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --aqua: #4DD0E1;
+            --aqua-glow: rgba(77, 208, 225, 0.4);
+            --aqua-soft: rgba(77, 208, 225, 0.15);
+            --navy-bg: #0d1624;
+            --navy-card: #151d2e;
+            --text: #e8eaed;
+            --text-muted: #9aa0a6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy-bg);
+            color: var(--text);
+            line-height: 1.65;
+            min-height: 100vh;
+        }
+        .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .janet-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 12px var(--aqua-glow));
+        }
+        .brand { font-size: 1.25rem; font-weight: 700; color: var(--aqua); }
+        h1 {
+            font-size: clamp(1.6rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        .phase {
+            background: var(--navy-card);
+            border: 1px solid rgba(77, 208, 225, 0.15);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+        }
+        .phase summary {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .phase summary::-webkit-details-marker { display: none; }
+        .phase summary::after {
+            content: "▼";
+            font-size: 0.7rem;
+            color: var(--aqua);
+            opacity: 0.8;
+            transition: transform 0.2s;
+        }
+        .phase[open] summary::after { transform: rotate(180deg); }
+        .phase summary:hover { background: rgba(77, 208, 225, 0.05); }
+        .phase-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--aqua-soft);
+            color: var(--aqua);
+            font-size: 0.85rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .phase-body {
+            padding: 0 1.5rem 1.5rem;
+            border-top: 1px solid rgba(77, 208, 225, 0.1);
+        }
+        .phase-intro {
+            padding: 1.25rem 1.5rem 0;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .phase-intro strong { color: var(--aqua); }
+        .jack-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--aqua);
+            opacity: 0.9;
+            margin-left: 0.5rem;
+        }
+        .phase ul {
+            list-style: none;
+            margin: 0.75rem 0 0;
+        }
+        .phase li {
+            padding: 0.5rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+        .phase li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--aqua);
+            font-size: 0.9rem;
+        }
+        .phase li.done::before { content: "✓"; }
+        .phase blockquote {
+            margin: 1rem 0;
+            padding: 1rem 1.25rem;
+            background: var(--aqua-soft);
+            border-left: 4px solid var(--aqua);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.92rem;
+        }
+        .phase blockquote + p { margin-top: 0.75rem; }
+        .phase h4 {
+            font-size: 0.95rem;
+            margin: 1.25rem 0 0.5rem;
+            color: var(--aqua);
+        }
+        .phase p { margin: 0.5rem 0; font-size: 0.95rem; }
+        .phase a {
+            color: var(--aqua);
+            text-decoration: none;
+        }
+        .phase a:hover { text-decoration: underline; }
+        .footer {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(77, 208, 225, 0.2);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+        .footer a { color: var(--aqua); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        @media print {
+            .phase { break-inside: avoid; }
+            .phase summary { cursor: default; }
+            .phase[open] summary::after { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="janet-icon.png" alt="Janet" class="janet-icon">
+            <span class="brand">Janet</span>
+        </header>
+
+        <h1>Janet Glasses Launch Runbook</h1>
+        <p class="subtitle">Janet in charge. Step-by-step. May 1, 2026. €5,000.</p>
+
+        <details class="phase" open>
+            <summary><span class="phase-num">1</span> Before You Start <span class="jack-tag">Lynda · Sentinel</span></summary>
+            <p class="phase-intro"><strong>Janet:</strong> Ready? First, let's make sure you have everything you need.</p>
+            <div class="phase-body">
+                <ul>
+                    <li>Bank account (name must match government-issued ID)</li>
+                    <li>Government-issued ID (passport, driver's license)</li>
+                    <li>Physical address, date of birth, email</li>
+                    <li>Legal decision recorded (00_LEGAL_STRUCTURE)</li>
+                    <li>Hero image ready (05_CAMPAIGN_VISUALS)</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="phase">
+            <summary><span class="phase-num">2</span> GoFundMe Account + Payout <span class="jack-tag">Researcher · 03</span></summary>
+            <p class="phase-intro"><strong>Janet:</strong> Let's get your account set up so you can receive funds.</p>
+            <div class="phase-body">
+                <ul>
+                    <li>Create GoFundMe account (sign in via Google, Facebook, Apple, or email)</li>
+                    <li>Verify email address</li>
+                    <li>Go to "Set up transfers"</li>
+                    <li>Enter full name (must match ID), physical address, date of birth</li>
+                    <li>Enter bank account details (SEPA / IBAN for Austria/EU)</li>
+                    <li>Submit supporting documents if requested</li>
+                    <li>Allow 2–5 business days for verification</li>
+                </ul>
+                <p><em>Austria / EU:</em> GoFundMe Ireland (EU Terms); SEPA to euro account. No PayPal—direct bank only.</p>
+            </div>
+        </details>
+
+        <details class="phase">
+            <summary><span class="phase-num">3</span> Create Campaign <span class="jack-tag">Blaze · 04</span></summary>
+            <p class="phase-intro"><strong>Janet:</strong> Time to create the campaign. Paste the story, set the goal.</p>
+            <div class="phase-body">
+                <ul>
+                    <li>Create fundraiser on GoFundMe</li>
+                    <li>Paste copy from 04_CAMPAIGN_COPY (Draft v2)</li>
+                    <li>Title: "Fund Janet Glasses: Privacy-first AI glasses for accessibility"</li>
+                    <li>Goal: €5,000</li>
+                    <li>Upload hero image (05_CAMPAIGN_VISUALS)</li>
+                    <li>Verify payout settings</li>
+                    <li>Publish campaign</li>
+                    <li>Copy campaign URL</li>
+                </ul>
+                <blockquote>
+                    <strong>Story (paste from 04):</strong> Accessibility first. Imagine live captions and translation right in front of your eyes—for deaf/HoH, non-native speakers. Privacy-first, offline, no subscription. Janet Glasses on Brilliant Labs Halo. One purchase. No monthly fees.
+                </blockquote>
+            </div>
+        </details>
+
+        <details class="phase">
+            <summary><span class="phase-num">4</span> Pre-Launch Links <span class="jack-tag">Darkness · Lynda</span></summary>
+            <p class="phase-intro"><strong>Janet:</strong> Connect the dots—landing page, campaign link.</p>
+            <div class="phase-body">
+                <ul>
+                    <li>Update janet-glasses-landing.html with campaign URL (replace placeholder)</li>
+                    <li>Redeploy landing page (Cloudflare Pages / DEPLOY_RUNBOOK)</li>
+                    <li>Optional: Social bios with campaign link</li>
+                    <li>Optional: Add "For Investors" link (21_FOR_INVESTORS)</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="phase">
+            <summary><span class="phase-num">5</span> Launch Day <span class="jack-tag">Blaze · Darkness</span></summary>
+            <p class="phase-intro"><strong>Janet:</strong> Go live. Share everywhere. Log it.</p>
+            <div class="phase-body">
+                <ul>
+                    <li>Execute 09_SHARE_PLAN Day 1</li>
+                    <li>Log in 10_LAUNCH_LOG</li>
+                </ul>
+                <h4>Share scripts (Blaze)</h4>
+                <blockquote>
+                    <strong>Twitter/X:</strong> Janet Glasses: privacy-first AI glasses for accessibility. Live captions + translation—offline, no cloud, no subscription. Phase 1 crowdfunding to validate on Brilliant Labs Halo. [link]
+                </blockquote>
+                <blockquote>
+                    <strong>LinkedIn:</strong> We're crowdfunding Janet Glasses—privacy-first AI smart glasses for accessibility. Live captions and translation, offline, no subscription. Phase 1 validates on Brilliant Labs Halo. Back the campaign: [link]
+                </blockquote>
+                <blockquote>
+                    <strong>Hacker News:</strong> Show HN: Janet Glasses – Privacy-first AI glasses for accessibility (gofundme.com). Substantive body: what it is, why it matters, what Phase 1 funds. Link campaign + what-can-janet-do.pages.dev
+                </blockquote>
+                <p><em>Channels:</em> Twitter/X, LinkedIn, Reddit (r/accessibility, r/privacy, r/opensource), Hacker News, Janet community. One post per sub on Reddit; participate in comments.</p>
+            </div>
+        </details>
+
+        <details class="phase">
+            <summary><span class="phase-num">6</span> First Week <span class="jack-tag">Blaze</span></summary>
+            <p class="phase-intro"><strong>Janet:</strong> Keep the momentum. Day 3 and Day 7.</p>
+            <div class="phase-body">
+                <ul>
+                    <li><strong>Day 3:</strong> Second round of shares; respond to comments</li>
+                    <li><strong>Day 7:</strong> Update post; "First week" share</li>
+                </ul>
+                <blockquote>
+                    <strong>Day 3:</strong> Thank you to everyone who has backed Janet Glasses so far. Your support funds Halo units, JanetXHalo v1 software, and an accessibility pilot. We're [X]% to our €5,000 goal. [link]
+                </blockquote>
+                <blockquote>
+                    <strong>Day 7:</strong> One week in. Janet Glasses campaign: [X] backers, [Y]% of goal. Funding live transcription + translation—offline, no cloud. If you know someone who'd benefit from accessibility-first AI glasses, please share. [link]
+                </blockquote>
+            </div>
+        </details>
+
+        <details class="phase">
+            <summary><span class="phase-num">7</span> Ongoing + Close (May 1, 2026) <span class="jack-tag">Lynda</span></summary>
+            <p class="phase-intro"><strong>Janet:</strong> Weekly updates until close. Then wrap it up cleanly.</p>
+            <div class="phase-body">
+                <ul>
+                    <li>Weekly updates (12_UPDATE_TEMPLATES); reshare on rotation</li>
+                    <li>Post final update before close</li>
+                    <li>Close campaign (May 1, 2026)</li>
+                    <li>Run 15_CLOSE_CHECKLIST</li>
+                    <li>Complete 16_POST_CAMPAIGN_REPORT</li>
+                </ul>
+            </div>
+        </details>
+
+        <footer class="footer">
+            <p>Janet · JACK · The Great Sage</p>
+            <p><a href="janet-glasses-landing.html">Campaign landing</a> · <a href="https://what-can-janet-do.pages.dev">What can Janet do?</a></p>
+            <p>Deploy: greatsage.org/glasses/launch</p>
+        </footer>
+    </div>
+</body>
+</html>

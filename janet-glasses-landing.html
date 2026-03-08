@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Janet Glasses — Privacy-first AI glasses for accessibility</title>
+    <meta name="description" content="Janet Glasses: live captions and translation, offline, no cloud, no subscription. Phase 1 crowdfunding for Janet Edition on Brilliant Labs Halo.">
+    <link rel="icon" href="janet-icon.png" type="image/png">
+    <style>
+        :root {
+            --aqua: #4DD0E1;
+            --aqua-glow: rgba(77, 208, 225, 0.4);
+            --aqua-soft: rgba(77, 208, 225, 0.15);
+            --pink: #F48FB1;
+            --pink-accent: #E91E63;
+            --navy-bg: #0d1624;
+            --navy-card: #151d2e;
+            --text: #e8eaed;
+            --text-muted: #9aa0a6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--navy-bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem; }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .janet-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 12px var(--aqua-glow));
+        }
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--aqua);
+            text-shadow: 0 0 20px var(--aqua-glow);
+        }
+        h1 {
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .cta {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--aqua) 0%, #26C6DA 100%);
+            color: var(--navy-bg);
+            padding: 0.9rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+            box-shadow: 0 0 24px var(--aqua-glow);
+        }
+        .cta:hover {
+            box-shadow: 0 0 36px var(--aqua-glow), 0 0 60px rgba(77, 208, 225, 0.2);
+            transform: scale(1.02);
+        }
+        .bullets {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        .bullets li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--aqua);
+            font-weight: bold;
+            text-shadow: 0 0 8px var(--aqua-glow);
+        }
+        .links {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(77, 208, 225, 0.2);
+            font-size: 0.95rem;
+        }
+        .links a {
+            color: var(--aqua);
+            text-decoration: none;
+        }
+        .links a:hover { 
+            text-decoration: underline; 
+            text-shadow: 0 0 8px var(--aqua-glow);
+        }
+        .links p { margin: 0.5rem 0; }
+        .made-in-eu {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--aqua-soft);
+            border-left: 4px solid var(--aqua);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 0 20px rgba(77, 208, 225, 0.08);
+        }
+        .made-in-eu h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.75rem;
+            color: var(--aqua);
+        }
+        .made-in-eu p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+        .made-in-eu p:last-child { margin-bottom: 0; }
+        .made-in-eu a {
+            color: var(--aqua);
+            text-decoration: none;
+        }
+        .made-in-eu a:hover { text-decoration: underline; }
+        footer {
+            margin-top: 2.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="janet-icon.png" alt="Janet" class="janet-icon">
+            <span class="brand">Janet</span>
+        </header>
+
+        <h1>Fund Janet Glasses: Privacy-first AI glasses for accessibility</h1>
+        <p class="tagline">Live captions and translation—right in front of your eyes. Offline. No cloud. No subscription.</p>
+
+        <a href="https://www.gofundme.com/f/janet-glasses-privacyfirst-ai-glasses-for-accessibility" class="cta" id="cta-gofundme">Back Janet Glasses on GoFundMe</a>
+
+        <ul class="bullets">
+            <li><strong>Privacy-first:</strong> No cloud. Your voice stays on your devices.</li>
+            <li><strong>Accessibility:</strong> Live captions, translation, memory assist—offline.</li>
+            <li><strong>No subscription:</strong> One purchase. No monthly fees.</li>
+            <li><strong>Janet ecosystem:</strong> Open-source, constitutional AI, cluster-only.</li>
+            <li><strong>Phase 1 validation:</strong> Software on Brilliant Labs Halo → pilot → Janet-native European hardware.</li>
+        </ul>
+
+        <section class="made-in-eu">
+            <h2>Janet’s idea: Made in EU</h2>
+            <p>We’re aiming for <strong>J.A.N.E.T. Glasses</strong>—Janet-native hardware designed and built in Europe. Materials, components, and assembly in the EU/EEA. Shorter supply chains, stronger privacy, European regulation.</p>
+            <p>The EU’s <a href="https://eur-lex.europa.eu/eli/reg_impl/2025/1728/oj/eng" target="_blank" rel="noopener">“Made in Europe”</a> rules require at least 50% value created in the EU for qualification. Phase 1 validates the model on Halo; Phase 4 delivers glasses that meet this standard.</p>
+            <p><em>Janet’s vision: AI wearables that respect you, your data, and your region.</em></p>
+        </section>
+
+        <div class="links">
+            <p><a href="https://what-can-janet-do.pages.dev">What can Janet do?</a> — Self-updating Janet ecosystem portfolio</p>
+            <p><a href="https://www.instagram.com/ohayo.janet/" target="_blank" rel="noopener">Instagram</a> · @ohayo.janet</p>
+            <p>Janet Glasses (Janet Edition) on Brilliant Labs Halo · Target: €5,000 · Deadline: May 1, 2026</p>
+        </div>
+
+        <footer>
+            Janet · Open source · Voice-first · Offline-first · Constitutional AI
+        </footer>
+    </div>
+</body>
+</html>
