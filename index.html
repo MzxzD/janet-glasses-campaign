@@ -281,6 +281,46 @@
         }
         body.janet-game-active .janet-game-hud { display: block; }
         body.janet-game-active .janet-game-hud.game-over { color: var(--pink); }
+        /* Carousel */
+        .carousel {
+            margin: calc(var(--pad) * 2) 0;
+            border-radius: calc(var(--pad) / 2);
+            overflow: hidden;
+            background: var(--navy-card);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+        }
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: calc(var(--pad) / 2);
+            padding: calc(var(--pad) / 2) 0;
+        }
+        .carousel-dots button {
+            width: calc(var(--pad) / 2);
+            height: calc(var(--pad) / 2);
+            border-radius: 50%;
+            border: none;
+            background: var(--text-muted);
+            cursor: pointer;
+        }
+        .carousel-dots button[aria-selected="true"] { background: var(--aqua); }
+        @media (prefers-reduced-motion: reduce) {
+            .carousel-track { transition: none; }
+        }
     </style>
 </head>
 <body>
@@ -294,6 +334,19 @@
         <main id="main" role="main" tabindex="-1">
         <h1>Fund Janet Glasses: Privacy-first AI glasses for accessibility</h1>
         <p class="tagline">Live captions and translation—right in front of your eyes. Offline. No cloud. No subscription.</p>
+
+        <section class="carousel" role="region" aria-roledescription="carousel" aria-label="Janet Glasses campaign visuals">
+            <div class="carousel-track" id="carousel-track">
+                <div class="carousel-slide"><img src="carousel-1.png" alt="JANET GLASSES — Privacy-first AI glasses for accessibility. Offline, no cloud, no subscription."></div>
+                <div class="carousel-slide"><img src="carousel-2.png" alt="Live captions offline. Your voice stays yours. Janet smart glasses with AR display."></div>
+                <div class="carousel-slide"><img src="carousel-3.png" alt="JANET GLASSES — Privacy-first, accessibility, made in EU."></div>
+            </div>
+            <div class="carousel-dots" role="tablist" aria-label="Carousel slides">
+                <button type="button" role="tab" aria-selected="true" aria-label="Slide 1" data-slide="0"></button>
+                <button type="button" role="tab" aria-selected="false" aria-label="Slide 2" data-slide="1"></button>
+                <button type="button" role="tab" aria-selected="false" aria-label="Slide 3" data-slide="2"></button>
+            </div>
+        </section>
 
         <a href="https://www.gofundme.com/f/janet-glasses-privacyfirst-ai-glasses-for-accessibility" class="cta" id="cta-gofundme">Back Janet Glasses on GoFundMe<span class="visually-hidden"> (opens in new tab)</span></a>
 
@@ -334,6 +387,35 @@
     </div>
     <div class="janet-game-hud" id="janet-hud" aria-live="polite">← → to tilt · Esc to exit</div>
     <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+    <script>
+(function() {
+  var track = document.getElementById('carousel-track');
+  var dots = document.querySelectorAll('.carousel-dots button');
+  var total = 3;
+  var current = 0;
+  var interval = 3000;
+  var carouselTimer;
+
+  function goTo(n) {
+    current = (n + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function(d, i) { d.setAttribute('aria-selected', i === current); });
+  }
+  function next() { goTo(current + 1); }
+  dots.forEach(function(btn, i) {
+    btn.addEventListener('click', function() { goTo(i); resetTimer(); });
+  });
+  function resetTimer() {
+    clearInterval(carouselTimer);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      carouselTimer = setInterval(next, interval);
+    }
+  }
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    carouselTimer = setInterval(next, interval);
+  }
+})();
+    </script>
     <script>
 (function() {
   var icon = document.getElementById('janet-icon');
